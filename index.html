@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guía Rápida de Localización — Campus Mixcoac</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ================= ENCABEZADO ================= -->
+  <header class="header">
+    <div class="logo">
+      <div class="arbol">🌳</div>
+      <div class="u">UNIVERSIDAD</div>
+      <div class="pana">Panamericana</div>
+    </div>
+    <div>
+      <h1>GUÍA RÁPIDA DE LOCALIZACIÓN</h1>
+      <h2>Campus Mixcoac</h2>
+    </div>
+  </header>
+
+
+  <!-- ============ BARRA DE FILTROS (la lógica vive en ui-controls.js) ============ -->
+  <div class="barra-filtros">
+    <button class="btn-filtro activo" data-filtro="todos">TODOS</button>
+    <button class="btn-filtro" data-filtro="bano">BAÑOS</button>
+    <button class="btn-filtro" data-filtro="salon">SALONES</button>
+    <button class="btn-filtro" data-filtro="aula">AULAS</button>
+    <button class="btn-filtro" data-filtro="lab">LABORATORIOS</button>
+  </div>
+
+  <div class="layout">
+
+    <!-- ================= MAPA ================= -->
+    <div class="mapa" id="mapa">
+
+      <!-- Bloques/manzanas vacías de fondo (aproximados al original) -->
+      <div class="bloque" style="left:2%;  top:4%;  width:20%; height:14%;"></div>
+      <div class="bloque" style="left:24%; top:4%;  width:16%; height:11%;"></div>
+      <div class="bloque" style="left:55%; top:4%;  width:12%; height:14%;"></div>
+      <div class="bloque" style="left:69%; top:4%;  width:18%; height:16%;"></div>
+      <div class="bloque" style="left:60%; top:30%; width:30%; height:22%;"></div>
+      <div class="bloque" style="left:60%; top:55%; width:14%; height:18%;"></div>
+      <div class="bloque" style="left:76%; top:55%; width:14%; height:22%;"></div>
+      <div class="bloque" style="left:24%; top:78%; width:30%; height:18%;"></div>
+      <div class="bloque" style="left:2%;  top:80%; width:18%; height:16%;"></div>
+
+      <!-- ---------- NOMBRES DE CALLES ---------- -->
+      <div class="calle" style="left:30%; top:10%;">EXTREMADURA</div>
+      <div class="calle" style="left:55%; top:2%;">EMPRESA</div>
+      <div class="calle vert" style="left:3%;  top:14%;">DONATELLO</div>
+      <div class="calle" style="left:32%; top:21%;">DONATELLO</div>
+      <div class="calle vert" style="left:33%; top:42%;">A. RODIN</div>
+      <div class="calle vert" style="left:33%; top:70%;">A. RODIN</div>
+      <div class="calle" style="left:5%;  top:38%;">GOYA</div>
+      <div class="calle" style="left:62%; top:48%;">VALENCIA</div>
+      <div class="calle vert" style="left:60%; top:58%;">JEREZ</div>
+      <div class="calle vert" style="left:79%; top:30%;">MÁLAGA</div>
+      <div class="calle vert" style="left:71%; top:62%;">MÁLAGA</div>
+      <div class="calle" style="left:88%; top:34%;">EXTREMADURA</div>
+      <div class="calle vert" style="left:88%; top:42%;">CÁDIZ</div>
+      <div class="calle" style="left:5%;  top:65%;">CAMPANA</div>
+      <div class="calle" style="left:33%; top:77%;">CAMPANA</div>
+      <div class="calle vert" style="left:36%; top:88%;">CÁNOVA</div>
+      <div class="calle" style="left:55%; top:90%;">ACTIPAN</div>
+      <div class="calle vert" style="left:62%; top:78%;">MÁLAGA</div>
+      <div class="calle" style="left:5%;  top:92%;">AV. RÍO MIXCOAC</div>
+      <div class="calle vert" style="left:72%; top:88%;">SANTANDER</div>
+      <div class="calle" style="left:74%; top:66%;">ALGECIRAS</div>
+      <div class="calle vert" style="left:83%; top:88%;">CÁDIZ</div>
+      <div class="calle vert" style="left:81%; top:48%;">SANTANDER</div>
+
+      <!-- ================================================
+           EDIFICIOS (bloques durazno)
+           ================================================ -->
+      <!-- Zona noroeste: Medicina / Aulas D -->
+      <div class="edificio destacado" style="left:13%; top:18%; width:18%; height:18%;"></div>
+      <!-- Escuela enfermería/psicología -->
+      <div class="edificio destacado" style="left:23%; top:21%; width:9%; height:8%;"></div>
+      <!-- Edif. 2 -->
+      <div class="edificio destacado" style="left:42%; top:22%; width:7%; height:7%;"></div>
+      <!-- Edif 16 / Estacionamiento principal -->
+      <div class="edificio" style="left:50%; top:23%; width:13%; height:18%;"></div>
+      <!-- 14 -->
+      <div class="edificio destacado" style="left:55%; top:18%; width:5%; height:5%;"></div>
+      <!-- Almacén / 15 / 22 / 21 -->
+      <div class="edificio destacado" style="left:62%; top:18%; width:8%; height:16%;"></div>
+      <!-- Zona central: idiomas / servicios escolares -->
+      <div class="edificio destacado" style="left:35%; top:35%; width:25%; height:22%;"></div>
+      <!-- 18 -->
+      <div class="edificio destacado" style="left:3%;  top:42%; width:6%; height:8%;"></div>
+      <!-- 25 Labs ESDAI -->
+      <div class="edificio destacado" style="left:52%; top:46%; width:6%; height:5%;"></div>
+      <!-- Biblioteca / 26 / 24 / 20 -->
+      <div class="edificio destacado" style="left:48%; top:52%; width:16%; height:9%;"></div>
+      <!-- Zona suroeste: jardín eventos / 6 / 7 -->
+      <div class="edificio destacado" style="left:5%;  top:55%; width:14%; height:14%;"></div>
+      <!-- Bloque central-sur: chancellor / jardín central / 5 -->
+      <div class="edificio destacado" style="left:34%; top:55%; width:22%; height:20%;"></div>
+      <!-- 8 -->
+      <div class="edificio destacado" style="left:24%; top:70%; width:7%; height:8%;"></div>
+      <!-- 9 / 10 -->
+      <div class="edificio destacado" style="left:38%; top:80%; width:10%; height:10%;"></div>
+      <!-- Gimnasio / 1 -->
+      <div class="edificio destacado" style="left:50%; top:80%; width:9%; height:12%;"></div>
+      <!-- 23 -->
+      <div class="edificio destacado" style="left:82%; top:55%; width:6%; height:6%;"></div>
+
+      <!-- ================================================
+           ETIQUETAS DE TEXTO EN RECUADRO (la mejora)
+           Cada label suelto del original, ahora en pastilla.
+           ================================================ -->
+      <div class="etiqueta mini" style="left:8%;  top:14%;">ESTACIONAMIENTO</div>
+      <div class="etiqueta mini" style="left:21%; top:20%;">ESDAI</div>
+      <div class="etiqueta mini" style="left:27%; top:20%;">QUIRÓFANO</div>
+      <div class="etiqueta mini" style="left:18%; top:23%;">BIOTERIO</div>
+      <div class="etiqueta mini" style="left:27%; top:23%;">ANFITEATRO</div>
+      <div class="etiqueta mini" style="left:15%; top:30%;">AULAS D</div>
+      <div class="etiqueta mini" style="left:27%; top:27%;">AULAS D</div>
+      <div class="etiqueta mini" style="left:21%; top:32%;">DECKS MEDICINA</div>
+      <div class="etiqueta mini" style="left:28%; top:31%;">MEDICINA</div>
+      <div class="etiqueta mini" style="left:21%; top:35.5%;">ESTACIONAMIENTO</div>
+      <div class="etiqueta mini" style="left:30%; top:23%;">EMPRESARIALES</div>
+      <div class="etiqueta mini" style="left:30%; top:26.5%;">ESC. ENFERMERÍA Y PSICOLOGÍA</div>
+      <div class="etiqueta multi" style="left:45%; top:19%;">RAMPA ESTACIONAMIENTO PRINCIPAL</div>
+      <div class="etiqueta multi" style="left:55%; top:14%;">ACCESO ESTACIONAMIENTO PRINCIPAL</div>
+      <div class="etiqueta" style="left:50%; top:16%;">CONTRAFLUJO</div>
+      <div class="etiqueta" style="left:64%; top:16%;">ALMACÉN</div>
+      <div class="etiqueta multi" style="left:67%; top:21%;">TALLER DE MANTENIMIENTO</div>
+      <div class="etiqueta" style="left:66%; top:24%;">DIP</div>
+      <div class="etiqueta multi" style="left:56%; top:30%;">ESTACIONAMIENTO PRINCIPAL</div>
+      <div class="etiqueta multi" style="left:50%; top:34%;">TÚNEL EXTREMADURA</div>
+
+      <div class="etiqueta mini" style="left:38%; top:36.5%;">ACCESO RODIN 456</div>
+      <div class="etiqueta mini" style="left:44%; top:36.5%;">IDIOMAS</div>
+      <div class="etiqueta mini" style="left:50%; top:36.5%;">SALONES R</div>
+      <div class="etiqueta mini" style="left:56%; top:36.5%;">SERVICIOS ESCOLARES</div>
+      <div class="etiqueta mini" style="left:38%; top:39.5%;">ENFERMERÍA</div>
+      <div class="etiqueta mini" style="left:44%; top:39.5%;">SALA UNIVERSITARIA</div>
+      <div class="etiqueta mini" style="left:50%; top:39.5%;">SALONES NR</div>
+      <div class="etiqueta mini" style="left:56%; top:39.5%;">ORATORIO</div>
+      <div class="etiqueta mini" style="left:38%; top:42.5%;">DEPORTES</div>
+      <div class="etiqueta mini" style="left:44%; top:42.5%;">ARTE Y CULTURA</div>
+      <div class="etiqueta mini" style="left:50%; top:42.5%;">BUSINESS LAB</div>
+      <div class="etiqueta mini" style="left:56%; top:42.5%;">CENTRO DE CÓMPUTO</div>
+      <div class="etiqueta mini" style="left:38%; top:45.5%;">D-LAB SPARK-UP</div>
+      <div class="etiqueta mini" style="left:44%; top:45.5%;">BECAS Y TESORERÍA</div>
+      <div class="etiqueta mini" style="left:50%; top:45.5%;">AUDITORIO</div>
+      <div class="etiqueta mini" style="left:56%; top:45.5%;">DECK ANTARITA</div>
+      <div class="etiqueta mini" style="left:38%; top:48.5%;">BIBLIOTECA</div>
+      <div class="etiqueta mini" style="left:44%; top:48.5%;">LAB DE CIENCIAS</div>
+      <div class="etiqueta mini" style="left:56%; top:48.5%;">LABS. ESDAI</div>
+
+      <div class="etiqueta mini" style="left:49%; top:52.5%;">BIBLIOTECA</div>
+      <div class="etiqueta mini" style="left:42%; top:52.5%;">LABS. INGENIERÍA</div>
+      <div class="etiqueta mini" style="left:54%; top:52.5%;">LABS. COMUNICACIÓN</div>
+      <div class="etiqueta mini" style="left:59%; top:54%;">MEDICINA</div>
+      <div class="etiqueta mini" style="left:63%; top:55.5%;">PSICOLOGÍA</div>
+      <div class="etiqueta mini" style="left:48%; top:58.5%;">AULAS J</div>
+
+      <div class="etiqueta mini" style="left:37%; top:56%;">CHANCELLOR</div>
+      <div class="etiqueta mini" style="left:43%; top:56%;">SALONES R</div>
+      <div class="etiqueta mini" style="left:49%; top:56%;">JARDÍN CENTRAL</div>
+      <div class="etiqueta mini" style="left:37%; top:59%;">AULA MAGNA</div>
+      <div class="etiqueta mini" style="left:43%; top:59%;">ERMITA</div>
+      <div class="etiqueta mini" style="left:49%; top:59%;">EXPLANADA VALENCIA</div>
+      <div class="etiqueta mini" style="left:37%; top:62%;">COMEDOR INVITADOS</div>
+      <div class="etiqueta mini" style="left:43%; top:62%;">CAFETERÍA</div>
+      <div class="etiqueta mini" style="left:49%; top:62%;">INGENIERÍA</div>
+      <div class="etiqueta mini" style="left:37%; top:65%;">PEDAGOGÍA</div>
+      <div class="etiqueta mini" style="left:43%; top:65%;">DERECHO</div>
+      <div class="etiqueta mini" style="left:49%; top:65%;">RELACIONES PÚBLICAS</div>
+      <div class="etiqueta mini" style="left:37%; top:68%;">SALA DEL BÚHO</div>
+      <div class="etiqueta mini" style="left:43%; top:68%;">PLAZA JÁUREGUI</div>
+      <div class="etiqueta mini" style="left:33%; top:63%;">RECEPCIÓN ACCESO RODIN 498</div>
+      <div class="etiqueta mini" style="left:55%; top:60%;">RECTORÍA GENERAL</div>
+      <div class="etiqueta mini" style="left:55%; top:63%;">RECTORÍA DE CAMPUS</div>
+
+      <div class="etiqueta multi" style="left:8%;  top:57%;">JARDÍN DE EVENTOS</div>
+      <div class="etiqueta" style="left:14%; top:62%;">ANEXO 507</div>
+      <div class="etiqueta multi" style="left:9%;  top:66%;">ESCUELA DE MÚSICA</div>
+      <div class="etiqueta multi" style="left:26%; top:71%;">SALONES P</div>
+      <div class="etiqueta multi" style="left:40%; top:81%;">SALONES C</div>
+      <div class="etiqueta multi" style="left:45%; top:83%;">SALONES C</div>
+      <div class="etiqueta multi" style="left:40%; top:88%;">COMPROMISO SOCIAL</div>
+      <div class="etiqueta multi" style="left:52%; top:82%;">GIMNASIO CANCHA PÁDEL</div>
+      <div class="etiqueta multi" style="left:52%; top:86%;">LABS. INGENIERÍA</div>
+      <div class="etiqueta multi" style="left:30%; top:74%;">PARROQUÍA DE SANTO DOMINGO DE GUZMÁN</div>
+      <div class="etiqueta multi" style="left:83%; top:58%;">OFICINAS / SERVICIOS ESCOLARES / TIC</div>
+
+      <!-- ================================================
+           MARCADORES NUMERADOS
+           ================================================ -->
+      <div class="marca-e" style="left:9%;  top:13%;">E</div>
+      <div class="num" style="left:11%; top:14%;">17</div>
+      <div class="num" style="left:13%; top:27%;">11</div>
+      <div class="num" style="left:18%; top:28%;">12</div>
+      <div class="num" style="left:24%; top:25%;">13</div>
+      <div class="num" style="left:28%; top:25%;">4</div>
+      <div class="marca-e" style="left:24%; top:34%;">E</div>
+      <div class="num" style="left:44%; top:24%;">2</div>
+      <div class="num" style="left:52%; top:25%;">16</div>
+      <div class="num" style="left:55%; top:20%;">14</div>
+      <div class="num" style="left:63%; top:22%;">15</div>
+      <div class="num" style="left:66%; top:26%;">22</div>
+      <div class="num" style="left:65%; top:28%;">21</div>
+      <div class="marca-e" style="left:57%; top:31%;">E</div>
+      <div class="num" style="left:3%;  top:43%;">18</div>
+      <div class="num" style="left:43%; top:39%;">3</div>
+      <div class="num" style="left:53%; top:47%;">25</div>
+      <div class="num" style="left:51%; top:55%;">26</div>
+      <div class="num" style="left:54%; top:55%;">24</div>
+      <div class="num" style="left:57%; top:55%;">20</div>
+      <div class="num" style="left:48%; top:57%;">27</div>
+      <div class="num" style="left:49%; top:59%;">19</div>
+      <div class="num" style="left:36%; top:57%;">28</div>
+      <div class="num" style="left:43%; top:60%;">5</div>
+      <div class="num" style="left:10%; top:58%;">6</div>
+      <div class="num" style="left:7%;  top:64%;">7</div>
+      <div class="num" style="left:27%; top:73%;">8</div>
+      <div class="num" style="left:40%; top:83%;">9</div>
+      <div class="num" style="left:42%; top:86%;">10</div>
+      <div class="num" style="left:53%; top:84%;">1</div>
+      <div class="num" style="left:83%; top:56%;">23</div>
+    </div>
+
+    <!-- ================= PANEL UBICACIÓN ================= -->
+    <div class="ubicacion">
+      <h3>UBICACIÓN</h3>
+      <div class="lista-cols">
+        <div class="col">
+          <div class="item"><span class="bola">1</span><div><b>ACTIPAN 2</b><div class="sub">Labs. Ingeniería · Gimnasio · Cancha Pádel</div></div></div>
+          <div class="item"><span class="bola">2</span><b>AUGUSTO RODIN 444</b></div>
+          <div class="item"><span class="bola">3</span><b>AUGUSTO RODIN 456</b></div>
+          <div class="item"><span class="bola">4</span><b>AUGUSTO RODIN 451</b></div>
+          <div class="item"><span class="bola">5</span><b>AUGUSTO RODIN 498</b></div>
+          <div class="item"><span class="bola">6</span><b>AUGUSTO RODIN 507</b></div>
+          <div class="item"><span class="bola">7</span><b>CAMPANA 46</b></div>
+          <div class="item"><span class="bola">8</span><b>CAMPANA 73</b></div>
+          <div class="item"><span class="bola">9</span><b>CAMPANA 91</b></div>
+          <div class="item"><span class="bola">10</span><b>CAMPANA 95</b></div>
+          <div class="item"><span class="bola">11</span><b>DONATELLO 57</b></div>
+          <div class="item"><span class="bola">12</span><b>DONATELLO 59</b></div>
+          <div class="item"><span class="bola">13</span><b>DONATELLO 79</b></div>
+          <div class="item"><span class="bola">14</span><b>EXTREMADURA 9</b></div>
+        </div>
+        <div class="col">
+          <div class="item"><span class="bola">15</span><b>EXTREMADURA 15</b></div>
+          <div class="item"><span class="bola">16</span><b>EXTREMADURA 100</b></div>
+          <div class="item"><span class="bola">17</span><b>EXTREMADURA 150</b></div>
+          <div class="item"><span class="bola">18</span><b>GOYA 49</b></div>
+          <div class="item"><span class="bola">19</span><b>JEREZ 10</b></div>
+          <div class="item"><span class="bola">20</span><b>JEREZ 20</b></div>
+          <div class="item"><span class="bola">21</span><b>JEREZ 42</b></div>
+          <div class="item"><span class="bola">22</span><b>JEREZ 48</b></div>
+          <div class="item"><span class="bola">23</span><b>VALENCIA 36</b></div>
+          <div class="item"><span class="bola">24</span><b>VALENCIA 100</b></div>
+          <div class="item"><span class="bola">25</span><b>VALENCIA 101</b></div>
+          <div class="item"><span class="bola">26</span><b>VALENCIA 102</b></div>
+          <div class="item"><span class="bola">27</span><b>VALENCIA 106</b></div>
+          <div class="item"><span class="bola">28</span><b>CALLEJÓN DE VALENCIA</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEYENDA DE ÍCONOS ================= -->
+  <div class="iconos">
+  <div class="icono"><div class="circ"><img src="Assets/Iconos/1.png" alt="1"></div><span>1</span></div>
+  <div class="icono"><div class="circ"><img src="Assets/Iconos/2.png" alt="2"></div><span>2</span></div>
+  <div class="icono"><div class="circ"><img src="Assets/Iconos/3.png" alt="3"></div><span>3</span></div>
+  <div class="icono"><div class="circ"><img src="Assets/Iconos/4.png" alt="4"></div><span>4</span></div>
+  <div class="icono"><div class="circ"><img src="Assets/Iconos/7.png" alt="7"></div><span>7</span></div>
+  <div class="icono"><div class="circ"><img src="Assets/Iconos/9.png" alt="9"></div><span>9</span></div>
+  <div class="icono"><div class="circ"><img src="Assets/Iconos/11.png" alt="11"></div><span>11</span></div>
+  <div class="icono"><div class="circ"><img src="Assets/Iconos/area recreativa.png" alt="area_recreativa"></div><span>area_recreativa</span></div>
+</div>
+
+
+  <!-- Orden importante: data → ui-controls → main -->
+  <script src="Assets/Iconos"></script>
+  <script src="js/data.js"></script>
+  <script src="js/ui-controls.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
