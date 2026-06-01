@@ -1,0 +1,233 @@
+/* =================================================================
+     PALETA INSTITUCIONAL UP (extraída del plano original)
+     ================================================================= */
+  :root {
+    --vino:        #7a1f3d;   /* rojo vino institucional */
+    --vino-claro:  #9c3354;
+    --dorado:      #b89150;   /* dorado del logo */
+    --durazno:     #f5d9bc;   /* relleno de edificios */
+    --durazno-int: #ecc49f;   /* edificios destacados (naranja) */
+    --calle:       #e8e8e8;   /* gris de las calles */
+    --bloque:      #efefef;   /* manzanas vacías */
+    --borde-edif:  #c8742f;   /* contorno naranja de edificios */
+    --texto:       #3a2a2e;
+    --texto-tenue: #6b5a5e;
+    --fondo:       #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    padding: 24px;
+  }
+
+  /* ---------- ENCABEZADO ---------- */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--dorado);
+    padding-bottom: 14px;
+  }
+  .logo {
+    display: flex; flex-direction: column; align-items: center;
+    color: var(--dorado); line-height: 1;
+  }
+  .logo .arbol { font-size: 42px; }
+  .logo .u { font-size: 9px; letter-spacing: 2px; margin-top: 4px; }
+  .logo .pana { font-size: 16px; font-weight: bold; }
+  .header h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px; letter-spacing: 1px; color: #222; font-weight: bold;
+  }
+  .header h2 {
+    font-family: Georgia, serif; font-size: 20px;
+    color: #444; font-weight: normal;
+  }
+
+  /* ---------- LAYOUT GENERAL ---------- */
+  .layout { display: flex; gap: 28px; align-items: flex-start; }
+
+  /* =================================================================
+     MAPA — contenedor con coordenadas relativas (%)
+     ================================================================= */
+  .mapa {
+    position: relative;
+    width: 760px;
+    height: 720px;
+    background: var(--calle);
+    border: 2px solid #333;
+    flex-shrink: 0;
+    overflow: hidden;
+    font-size: 0; /* evita gaps */
+  }
+
+  /* Manzanas/bloques vacíos del fondo */
+  .bloque {
+    position: absolute;
+    background: var(--bloque);
+  }
+
+  /* Nombres de calles */
+  .calle {
+    position: absolute;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--texto-tenue);
+    white-space: nowrap;
+  }
+  .calle.vert { writing-mode: vertical-rl; }
+
+  /* -----------------------------------------------------------------
+     EDIFICIOS — bloque durazno con borde naranja
+     ----------------------------------------------------------------- */
+  .edificio {
+    position: absolute;
+    background: var(--durazno);
+    border: 1.5px solid var(--borde-edif);
+    border-radius: 2px;
+  }
+  .edificio.destacado { background: var(--durazno-int); }
+
+  /* -----------------------------------------------------------------
+     ETIQUETAS EN RECUADRO  ← LA MEJORA SOLICITADA
+     Cada texto suelto ahora vive en una "pastilla" legible.
+     ----------------------------------------------------------------- */
+  .etiqueta {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.94);
+    border: 1px solid var(--borde-edif);
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-size: 7px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--texto);
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.10);
+    z-index: 4;
+  }
+  /* variante para textos de dos líneas */
+  .etiqueta.multi { white-space: normal; max-width: 62px; }
+  /* variante MINI para las zonas más densas (centro del campus) */
+  .etiqueta.mini { font-size: 6px; padding: 1px 3px; max-width: 54px; white-space: normal; }
+  /* al pasar el mouse, la etiqueta sube al frente y se agranda (útil para leer) */
+  .etiqueta:hover { z-index: 99; transform: translate(-50%, -50%) scale(1.6); }
+
+  /* -----------------------------------------------------------------
+     MARCADORES NUMERADOS (círculos)
+     ----------------------------------------------------------------- */
+  .num {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 22px; height: 22px;
+    background: var(--durazno-int);
+    border: 1.5px solid var(--vino);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: bold; color: var(--vino);
+    z-index: 6;
+  }
+  .marca-e {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 20px; height: 20px;
+    background: #fff;
+    border: 1.5px solid var(--texto);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: bold; color: var(--texto);
+    z-index: 6;
+  }
+
+  /* =================================================================
+     PANEL DERECHO — UBICACIÓN (leyenda numerada)
+     ================================================================= */
+  .ubicacion h3 {
+    font-family: Georgia, serif;
+    color: var(--vino);
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .lista-cols { display: flex; gap: 26px; }
+  .col { display: flex; flex-direction: column; gap: 9px; }
+  .item { display: flex; align-items: flex-start; gap: 9px; font-size: 12px; }
+  .item .bola {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    background: var(--durazno);
+    border: 1px solid var(--dorado);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: bold; color: var(--texto);
+  }
+  .item .sub { font-size: 10px; color: var(--texto-tenue); line-height: 1.3; }
+  .item b { font-weight: 700; letter-spacing: .3px; }
+
+  /* =================================================================
+     LEYENDA DE ÍCONOS (parte inferior)
+     ================================================================= */
+  .iconos {
+    display: flex; gap: 26px; margin-top: 26px;
+    border-top: 2px solid var(--dorado); padding-top: 16px;
+    flex-wrap: wrap;
+  }
+  .icono { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.icono .circ {
+  width: 44px; height: 44px;
+  border: 2px solid var(--vino);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.icono .circ img {
+  width: 30px; height: 30px;
+  object-fit: contain;
+}  .icono span { font-size: 10px; color: var(--vino); font-weight: 600; }
+
+  .oculto { display: none !important; }
+
+  /* =================================================================
+     FILTROS — botones para prender/apagar categorías
+     ================================================================= */
+  .barra-filtros {
+    display: flex;
+    gap: 10px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .btn-filtro {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--vino);
+    background: #fff;
+    border: 1.5px solid var(--vino);
+    border-radius: 20px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .btn-filtro:hover { background: var(--durazno); }
+  .btn-filtro.activo {
+    background: var(--vino);
+    color: #fff;
+  }
+
+  /* Resalta una etiqueta cuando está filtrada/activa */
+  .etiqueta.resaltada {
+    border-color: var(--vino);
+    border-width: 2px;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(122,31,61,0.5);
+    z-index: 50;
+  }
